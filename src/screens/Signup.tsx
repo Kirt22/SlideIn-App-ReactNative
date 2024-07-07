@@ -1,9 +1,13 @@
 import React from 'react';
+import axios from 'axios';
 //import sinupImg from '../assets/jpg/signip_img.jpeg';
-import { View, Text, TextInput, Button, Image, StyleSheet } from 'react-native';
+import { View ,Text, TextInput, Button, Image, StyleSheet } from 'react-native';
+import { BASE_URL } from '../utils/Constants';
 
 const SignupScreen = () => {
-  return (
+
+
+return (
     <View style={styles.container}>
       {/* <Image
         source={require(sinupImg)}
@@ -43,7 +47,8 @@ const SignupScreen = () => {
 
       <Button
         title="Sign Up"
-        onPress={() => {}}
+        onPress={() => {
+        }}
         color="#000"
       />
 
