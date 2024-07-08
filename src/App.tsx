@@ -30,7 +30,6 @@ const AppTab = () => (
 );
 
 
-
 const App = () => {
   return (
     <NavigationContainer> 
