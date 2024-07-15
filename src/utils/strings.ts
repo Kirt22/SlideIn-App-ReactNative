@@ -1,3 +1,3 @@
 export const strings = {
-    forgotPass: "Forgot Password?",
-}
+  forgotPass: 'Forgot Password?',
+};

@@ -1,3 +1,3 @@
 export const colors = {
-    black: '#000',
-}
+  black: '#000',
+};
