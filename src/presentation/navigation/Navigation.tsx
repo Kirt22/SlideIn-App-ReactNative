@@ -6,11 +6,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 // Screens
-import signup from './screens/Signup';
-import signin from './screens/Signin';
-import home from './screens/Home';
-import settings from './screens/Settings';
-import leaderboard from './screens/Leaderboard';
+import signup from '../screens/Signup';
+import signin from '../screens/Signin';
+import home from '../screens/Home';
+import settings from '../screens/Settings';
+import leaderboard from '../screens/Leaderboard';
 import {View} from 'react-native';
 
 const nativeStack = createNativeStackNavigator();
