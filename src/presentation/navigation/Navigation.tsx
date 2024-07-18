@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {s} from 'react-native-wind';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -33,7 +33,7 @@ const AppTab = () => (
 
 export default function Navigation() {
   return (
-    <View style={styles.container}>
+    <View style={s `flex-1`}>
       <NavigationContainer>
         <nativeStack.Navigator screenOptions={{headerShown: false}}>
           <nativeStack.Screen
@@ -51,9 +51,3 @@ export default function Navigation() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
