@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const leaderboard = () => {
+const Settings = () => {
   return (
     <View>
-      <Text>leaderboard</Text>
+      <Text>Settings</Text>
     </View>
   )
 }
 
-export default leaderboard
+export default Settings

@@ -6,11 +6,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 // Screens
-import signup from '../screens/Signup';
-import signin from '../screens/Signin';
-import home from '../screens/Home';
-import settings from '../screens/Settings';
-import leaderboard from '../screens/Leaderboard';
+import Signup from '../screens/Signup.screens';
+import Signin from '../screens/Signin.screens';
+import Home from '../screens/Home.screens';
+import Settings from '../screens/Settings.screens';
+import Leaderboard from '../screens/Leaderboard.screens';
 import {View} from 'react-native';
 
 const nativeStack = createNativeStackNavigator();
@@ -18,16 +18,16 @@ const tab = createBottomTabNavigator();
 
 const AuthStack = () => (
   <nativeStack.Navigator screenOptions={{headerShown: false}}>
-    <nativeStack.Screen name="SignUp" component={signup} />
-    <nativeStack.Screen name="SignIn" component={signin} />
+    <nativeStack.Screen name="SignUp" component={Signup} />
+    <nativeStack.Screen name="SignIn" component={Signin} />
   </nativeStack.Navigator>
 );
 
 const AppTab = () => (
   <tab.Navigator screenOptions={{headerShown: false}}>
-    <tab.Screen name="Home" component={home} />
-    <tab.Screen name="Settings" component={settings} />
-    <tab.Screen name="Leaderboard" component={leaderboard} />
+    <tab.Screen name="Home" component={Home} />
+    <tab.Screen name="Settings" component={Settings} />
+    <tab.Screen name="Leaderboard" component={Leaderboard} />
   </tab.Navigator>
 );
 

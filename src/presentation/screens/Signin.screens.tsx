@@ -1,26 +1,29 @@
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React, {useState} from 'react';
 import {s} from 'react-native-wind';
-import {TextInput, Button} from 'react-native-paper';
+import {Button} from 'react-native-paper';
 import * as Progress from 'react-native-progress';
 
 // svg image
-import SignupImage from '../assets/images/svj/signup_title.svg';
+import SigninImage from '../assets/images/svj/signin_title.svg';
 
 // strings import
 import {strings} from '../assets/strings/strings';
 
 // components import
-import CustomTextInput from '../components/CustomTextInput';
+import CustomTextInput from '../components/CustomTextInput.componentes';
 
-const signup = () => {
-  const [username, setUsername] = useState('');
+const Signin = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
   return (
     <ScrollView style={s`flex-auto`} showsVerticalScrollIndicator={false}>
-      <SignupImage style={s`self-center mb-8 mt-9`} width={300} height={100} />
+      <SigninImage style={s`self-center mt-16`} width={330} height={90} />
+
+      <Text style={s`text-3xl font-light self-end mr-12 mb-10`}>
+        {strings.SigninScreen.welcomeMsg1}
+      </Text>
 
       <Progress.Bar
         style={s`mb-10`}
@@ -33,36 +36,25 @@ const signup = () => {
 
       <View>
         <Text style={s`text-xl text-black mb-3 ml-6`}>
-          {strings.RegisterScreen.usernameLbl}
+          {strings.SigninScreen.emailLbl}
         </Text>
 
         <CustomTextInput
           containerStyle={[s`w-11/12 self-center mb-9`, styles.elevation]}
-          placeholder={strings.RegisterScreen.usernameHint}
-          value={username}
-          onChangeText={setUsername}
-        />
-
-        <Text style={s`text-xl text-black mb-3 ml-6`}>
-          {strings.RegisterScreen.emailLbl}
-        </Text>
-
-        <CustomTextInput
-          containerStyle={[s`w-11/12 self-center mb-9`, styles.elevation]}
-          placeholder={strings.RegisterScreen.emailHint}
+          placeholder={strings.SigninScreen.emailHint}
           value={email}
           onChangeText={setEmail}
         />
 
         <Text style={s`text-xl text-black mb-3 ml-6`}>
-          {strings.RegisterScreen.passwordLbl}
+          {strings.SigninScreen.passwordLbl}
         </Text>
 
         <CustomTextInput
           containerStyle={[s`w-11/12 self-center mb-7`, styles.elevation]}
-          placeholder={strings.RegisterScreen.passwordHint}
-          secureTextEntry={true}
+          placeholder={strings.SigninScreen.passwordHint}
           value={password}
+          secureTextEntry={true}
           onChangeText={setPassword}
         />
 
@@ -70,26 +62,26 @@ const signup = () => {
 
         <Button
           style={[
-            s`w-80 h-12 self-center rounded-3xl mb-8`,
+            s`w-80 h-12 self-center rounded-3xl mb-16`,
             styles.elevationBtn,
           ]}
           labelStyle={s`text-base`}
           mode="contained"
           buttonColor="black"
           textColor="white">
-          {strings.RegisterScreen.btnLable}
+          {strings.SigninScreen.btnLable}
         </Button>
 
-        <Text style={s`self-center text-blue-700 text-base mb-8`}>
-          Already Registered? Sign In Instead!
+        <Text style={s`self-center text-lg mb-4`}>
+          {strings.SigninScreen.dontHaveAcc1}
+          <Text style={s`text-blue-700`}>
+            {' '}
+            {strings.SigninScreen.dontHaveAcc2}
+          </Text>
         </Text>
 
-        <Text style={s`self-center text-lg font-extralight`}>
-          {strings.RegisterScreen.welcomeMsg1}
-        </Text>
-
-        <Text style={s`self-center text-lg font-extralight`}>
-          {strings.RegisterScreen.welcomeMsg2}
+        <Text style={s`self-center text-lg mb-8`}>
+          {strings.SigninScreen.forgotPassword}
         </Text>
       </View>
     </ScrollView>
@@ -117,4 +109,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default signup;
+export default Signin;

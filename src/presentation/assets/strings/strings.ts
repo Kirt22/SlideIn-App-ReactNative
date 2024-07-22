@@ -7,8 +7,19 @@ export const strings = {
     emailHint: "example@gmail.com",
     passwordHint: "password",
     btnLable: "CREATE ACCOUNT",
-    alredyHaveAcc: "Already registered? Signin instead!",
+    alredyHaveAcc1: "Already registered?",
+    alredyHaveAcc2: " Sign-In Instead!",
     welcomeMsg1: "Welcome to Slide In!",
-    welcomeMsg2: "Your personal dating assistant."
+  },
+  SigninScreen: {
+    emailLbl: "Email",
+    passwordLbl: "Password",
+    emailHint: "example@gamil.com",
+    passwordHint: "password",
+    btnLable: "SIGN IN",
+    dontHaveAcc1: "Don't have an account?",
+    dontHaveAcc2: "Register Now!",
+    forgotPassword: "Forgot Password?",
+    welcomeMsg1: "Welcome back.",
   }
 };
