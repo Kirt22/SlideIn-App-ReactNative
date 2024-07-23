@@ -1,10 +1,12 @@
 import * as Keychain from 'react-native-keychain';
 
-export const setToken = async (token: string): Promise<void> => {
+export const setToken = async (token: string): Promise<boolean> => {
   try {
     await Keychain.setGenericPassword('token', token);
+    return true
   } catch (error) {
     console.log("Keychain couldn't be accessed!", error);
+    return false
   }
 };
 
@@ -18,10 +20,12 @@ export const getToken = async (): Promise<string | null> => {
   }
 };
 
-export const deleteToken = async (): Promise<void> => {
+export const deleteToken = async (): Promise<boolean> => {
   try {
     await Keychain.resetGenericPassword();
+    return true
   } catch (error) {
     console.log("Keychain couldn't be accessed!", error);
+    return false
   }
 };
