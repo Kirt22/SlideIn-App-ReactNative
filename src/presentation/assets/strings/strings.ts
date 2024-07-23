@@ -19,7 +19,7 @@ export const strings = {
     btnLable: "SIGN IN",
     dontHaveAcc1: "Don't have an account?",
     dontHaveAcc2: "Register Now!",
-    forgotPassword: "Forgot Password?",
+    forgotPassword: "Forgot password?",
     welcomeMsg1: "Welcome back.",
   }
 };

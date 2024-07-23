@@ -5,7 +5,8 @@ const initState = {
   isSignedIn: false,
   token: '',
   loader: false,
-  errorStr: '',
+  errorStrSignup: '',
+  errorStrSignin: '',
 };
 
 const authSlice = createSlice({
@@ -25,7 +26,7 @@ const authSlice = createSlice({
 
     builder.addCase(signup.rejected, (state, action: PayloadAction<any>) => {
       state.loader = false;
-      state.errorStr = action.payload as string;
+      state.errorStrSignup = action.payload as string;
     });
 
     builder.addCase(signin.fulfilled, (state, action: PayloadAction<any>) => {
@@ -40,7 +41,7 @@ const authSlice = createSlice({
 
     builder.addCase(signin.rejected, (state, action: PayloadAction<any>) => {
       state.loader = false;
-      state.errorStr = action.payload.message;
+      state.errorStrSignin = action.payload as string;
     });
   },
 });

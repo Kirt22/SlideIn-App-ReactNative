@@ -3,13 +3,11 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  Touchable,
   TouchableOpacity,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {s} from 'react-native-wind';
 import {Button} from 'react-native-paper';
-import {NavigationAction} from '@react-navigation/native';
 import * as Progress from 'react-native-progress';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState, AppDispatch} from '../../application/redux/Store.redux';
@@ -35,7 +33,7 @@ const Signup = ({navigation}: any) => {
   const [errorMsg, setErrorMsg] = useState('');
   const [email, setEmail] = useState('');
 
-  const {errorStr, loader, token, isSignedIn} = useSelector(
+  const {errorStrSignup, loader, token, isSignedIn} = useSelector(
     (state: RootState) => state.auth,
   );
   const dispatch = useDispatch<AppDispatch>();
@@ -45,11 +43,11 @@ const Signup = ({navigation}: any) => {
   }, [loader]);
 
   useEffect(() => {
-    if (errorStr) {
+    if (errorStrSignup) {
       setErrorMsgVisibility(true);
-      setErrorMsg(errorStr);
+      setErrorMsg(errorStrSignup);
     }
-  }, [errorStr]);
+  }, [errorStrSignup]);
 
   useEffect(() => {
     const setAuthToken = async () => {
@@ -77,7 +75,7 @@ const Signup = ({navigation}: any) => {
     dispatch(signup(signupreq));
     setLoaderVisiblity(loader);
     setErrorMsgVisibility(true);
-    setErrorMsg(errorStr);
+    setErrorMsg(errorStrSignup);
   };
 
   const handleTextClick = () => {
@@ -138,7 +136,7 @@ const Signup = ({navigation}: any) => {
 
         <Text
           style={[
-            s`text-red-600 ml-6 text-base mb-12`,
+            s`text-red-600 ml-6 text-base mb-7`,
             {opacity: errorMsgVisibility ? 1 : 0},
           ]}>
           {errorMsg}

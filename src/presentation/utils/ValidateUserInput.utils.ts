@@ -1,4 +1,4 @@
-import { SignupRequest } from "../../domain/models/auth.models";
+import { SignupRequest, SigninRequest } from "../../domain/models/auth.models";
 
 interface returnType {
   isValid: boolean;
@@ -31,7 +31,7 @@ export const validateCredentialsSignup = (input: SignupRequest): returnType => {
   };
 };
 
-export const validateCredentialsSignin = (input: SignupRequest): returnType => {
+export const validateCredentialsSignin = (input: SigninRequest): returnType => {
   if (input.email === '' || input.password === '') {
     return {
       isValid: false,

@@ -43,10 +43,10 @@ export const signIn = async (
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       const errorMessage = (error.response.data as {message: string}).message;
-      return {error: errorMessage};
+      throw new Error(errorMessage);
     } else {
       console.error('Unknown error', error);
-      return {error: 'Unknown error'};
+      throw new Error('Unknown error');
     }
   }
 };
