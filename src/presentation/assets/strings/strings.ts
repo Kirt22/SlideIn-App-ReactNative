@@ -8,7 +8,7 @@ export const strings = {
     passwordHint: "password",
     btnLable: "CREATE ACCOUNT",
     alredyHaveAcc1: "Already registered?",
-    alredyHaveAcc2: " Sign-In Instead!",
+    alredyHaveAcc2: " SignIn Instead!",
     welcomeMsg1: "Welcome to Slide In!",
   },
   SigninScreen: {

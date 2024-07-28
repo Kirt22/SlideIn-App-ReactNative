@@ -8,6 +8,12 @@ import {
 import React, {useState, useEffect} from 'react';
 import {s} from 'react-native-wind';
 import {Button} from 'react-native-paper';
+import {
+  moderateScale,
+  moderateVerticalScale,
+  scale,
+  verticalScale,
+} from 'react-native-size-matters';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Progress from 'react-native-progress';
 import {RootState, AppDispatch} from '../../application/redux/Store.redux';
@@ -83,15 +89,19 @@ const Signin = ({navigation}: any) => {
   const handleText2Click = () => {};
 
   return (
-    <ScrollView style={s`flex-auto`} showsVerticalScrollIndicator={false}>
-      <SigninImage style={s`self-center mt-16`} width={330} height={90} />
+    <ScrollView style={s`flex`} showsVerticalScrollIndicator={false}>
+      <SigninImage
+        style={[s`self-center`, styles.singinInmageScaling]}
+        width={scale(300)}
+        height={verticalScale(100)}
+      />
 
-      <Text style={s`text-3xl font-light self-end mr-12 mb-10`}>
+      <Text style={[s`self-end`, styles.welcomeTextScaling]}>
         {strings.SigninScreen.welcomeMsg1}
       </Text>
 
       <Progress.Bar
-        style={[s`mb-10`, {opacity: loaderVisiblity ? 1 : 0}]}
+        style={[{opacity: loaderVisiblity ? 1 : 0}, styles.loaderScaling]}
         borderWidth={0}
         indeterminate={true}
         width={null}
@@ -100,23 +110,23 @@ const Signin = ({navigation}: any) => {
       />
 
       <View>
-        <Text style={s`text-xl text-black mb-3 ml-6`}>
+        <Text style={[s`text-black`, styles.lblScaling]}>
           {strings.SigninScreen.emailLbl}
         </Text>
 
         <CustomTextInput
-          containerStyle={[s`w-11/12 self-center mb-9`, styles.elevation]}
+          containerStyle={[s`self-center`, styles.elevation, styles.inputScaling]}
           placeholder={strings.SigninScreen.emailHint}
           value={email}
           onChangeText={setEmail}
         />
 
-        <Text style={s`text-xl text-black mb-3 ml-6`}>
+        <Text style={[s`text-black`, styles.lblScaling]}>
           {strings.SigninScreen.passwordLbl}
         </Text>
 
         <CustomTextInput
-          containerStyle={[s`w-11/12 self-center mb-7`, styles.elevation]}
+          containerStyle={[s`self-center`, styles.elevation, styles.inputScaling]}
           placeholder={strings.SigninScreen.passwordHint}
           value={password}
           secureTextEntry={true}
@@ -125,16 +135,18 @@ const Signin = ({navigation}: any) => {
 
         <Text
           style={[
-            s`text-red-600 ml-6 text-base mb-10`,
+            s`text-red-600`,
             {opacity: errorMsgVisibility ? 1 : 0},
+            styles.errorLblScaling,
           ]}>
           {errorMsg}
         </Text>
 
         <Button
           style={[
-            s`w-80 h-12 self-center rounded-3xl mb-16`,
+            s`w-8/12 h-14 self-center justify-center rounded-full`,
             styles.elevationBtn,
+            styles.btnScaling
           ]}
           labelStyle={s`text-base`}
           mode="contained"
@@ -145,7 +157,7 @@ const Signin = ({navigation}: any) => {
         </Button>
 
         <TouchableOpacity onPress={handleText1Click}>
-          <Text style={s`self-center text-lg mb-4`}>
+          <Text style={[s`self-center`, styles.dontHaveAccScaling]}>
             {strings.SigninScreen.dontHaveAcc1}
             <Text style={s`text-blue-700`}>
               {' '}
@@ -155,7 +167,7 @@ const Signin = ({navigation}: any) => {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleText2Click}>
-          <Text style={s`self-center text-lg mb-8`}>
+          <Text style={[s`self-center`, styles.forgotPassScaling]}>
             {strings.SigninScreen.forgotPassword}
           </Text>
         </TouchableOpacity>
@@ -183,6 +195,50 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
+  singinInmageScaling: {
+    marginTop: moderateVerticalScale(30),
+  },
+  welcomeTextScaling: {
+    //text-3xl mr-12 mb-10
+    fontSize: scale(22),
+    marginRight: moderateScale(35),
+    marginBottom: moderateVerticalScale(30),
+    opacity: 0.7,
+  },
+  loaderScaling: {
+    //mb-10
+    marginBottom: moderateVerticalScale(30),
+  },
+  lblScaling: {
+    //mb-3 ml-10 text-xl
+    marginBottom: moderateVerticalScale(15),
+    marginLeft: moderateScale(40),
+    fontSize: scale(18),
+  },
+  inputScaling: {
+    width: '80%',
+    marginBottom: moderateVerticalScale(20),
+  },
+  errorLblScaling: {
+    // ml-10 text-base mb-7
+    marginLeft: moderateScale(40),
+    fontSize: scale(13),
+    marginBottom: moderateVerticalScale(65),
+    marginTop: moderateVerticalScale(10),
+  },
+  btnScaling: {
+    //mb-10
+    marginBottom: moderateVerticalScale(50),
+    height: verticalScale(40),
+  },
+  dontHaveAccScaling: {
+    //  text-lg mb-8
+    fontSize: scale(15),
+    marginBottom: moderateVerticalScale(20),
+  },
+  forgotPassScaling: {
+    fontSize: scale(15),
+  }
 });
 
 export default Signin;

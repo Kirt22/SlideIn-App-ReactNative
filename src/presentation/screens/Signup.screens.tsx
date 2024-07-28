@@ -8,6 +8,12 @@ import {
 import React, {useEffect, useState} from 'react';
 import {s} from 'react-native-wind';
 import {Button} from 'react-native-paper';
+import {
+  moderateScale,
+  moderateVerticalScale,
+  scale,
+  verticalScale,
+} from 'react-native-size-matters';
 import * as Progress from 'react-native-progress';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState, AppDispatch} from '../../application/redux/Store.redux';
@@ -83,15 +89,19 @@ const Signup = ({navigation}: any) => {
   };
 
   return (
-    <ScrollView style={s`flex-auto`} showsVerticalScrollIndicator={false}>
-      <SignupImage style={s`self-center mb-1 mt-9`} width={330} height={110} />
+    <ScrollView style={s`flex`} showsVerticalScrollIndicator={false}>
+      <SignupImage
+        style={[s`self-center`, styles.signupImgScaling]}
+        width={scale(300)}
+        height={verticalScale(100)}
+      />
 
-      <Text style={s`text-3xl font-light self-end mr-12 mb-10`}>
+      <Text style={[s`self-end`, styles.welcomeTextScaling]}>
         {strings.RegisterScreen.welcomeMsg1}
       </Text>
 
       <Progress.Bar
-        style={[s`mb-10`, {opacity: loaderVisiblity ? 1 : 0}]}
+        style={[{opacity: loaderVisiblity ? 1 : 0}, styles.loaderScaling]}
         borderWidth={0}
         indeterminate={true}
         width={null}
@@ -100,34 +110,46 @@ const Signup = ({navigation}: any) => {
       />
 
       <View>
-        <Text style={s`text-xl text-black mb-3 ml-6`}>
+        <Text style={[s`text-black`, styles.lblScaling]}>
           {strings.RegisterScreen.usernameLbl}
         </Text>
 
         <CustomTextInput
-          containerStyle={[s`w-11/12 self-center mb-9`, styles.elevation]}
+          containerStyle={[
+            s`self-center`,
+            styles.elevation,
+            styles.inputScaling,
+          ]}
           placeholder={strings.RegisterScreen.usernameHint}
           value={username}
           onChangeText={setUsername}
         />
 
-        <Text style={s`text-xl text-black mb-3 ml-6`}>
+        <Text style={[s`text-black`, styles.lblScaling]}>
           {strings.RegisterScreen.emailLbl}
         </Text>
 
         <CustomTextInput
-          containerStyle={[s`w-11/12 self-center mb-9`, styles.elevation]}
+          containerStyle={[
+            s`self-center`,
+            styles.elevation,
+            styles.inputScaling,
+          ]}
           placeholder={strings.RegisterScreen.emailHint}
           value={email}
           onChangeText={setEmail}
         />
 
-        <Text style={s`text-xl text-black mb-3 ml-6`}>
+        <Text style={[s`text-black`, styles.lblScaling]}>
           {strings.RegisterScreen.passwordLbl}
         </Text>
 
         <CustomTextInput
-          containerStyle={[s`w-11/12 self-center mb-7`, styles.elevation]}
+          containerStyle={[
+            s`self-center`,
+            styles.elevation,
+            styles.inputScaling,
+          ]}
           placeholder={strings.RegisterScreen.passwordHint}
           secureTextEntry={true}
           value={password}
@@ -136,16 +158,18 @@ const Signup = ({navigation}: any) => {
 
         <Text
           style={[
-            s`text-red-600 ml-6 text-base mb-7`,
+            s`text-red-600`,
             {opacity: errorMsgVisibility ? 1 : 0},
+            styles.errorLblScaling,
           ]}>
           {errorMsg}
         </Text>
 
         <Button
           style={[
-            s`w-80 h-12 self-center rounded-3xl mb-8`,
+            s`w-8/12 self-center justify-center rounded-full`,
             styles.elevationBtn,
+            styles.btnScaling,
           ]}
           labelStyle={s`text-base`}
           mode="contained"
@@ -156,7 +180,7 @@ const Signup = ({navigation}: any) => {
         </Button>
 
         <TouchableOpacity onPress={handleTextClick}>
-          <Text style={s`self-center text-lg mb-8`}>
+          <Text style={[s`self-center`, styles.alredyHaveAccScaling]}>
             {strings.RegisterScreen.alredyHaveAcc1}
             <Text style={s`text-blue-700`}>
               {strings.RegisterScreen.alredyHaveAcc2}
@@ -186,6 +210,46 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
+  },
+  signupImgScaling: {
+    //mb-1 mt-9
+    marginTop: moderateVerticalScale(30),
+  },
+  welcomeTextScaling: {
+    //text-3xl mr-12 mb-10
+    fontSize: scale(22),
+    marginRight: moderateScale(35),
+    marginBottom: moderateVerticalScale(30),
+    opacity: 0.7,
+  },
+  loaderScaling: {
+    //mb-10
+    marginBottom: moderateVerticalScale(30),
+  },
+  lblScaling: {
+    //mb-3 ml-10 text-xl
+    marginBottom: moderateVerticalScale(15),
+    marginLeft: moderateScale(40),
+    fontSize: scale(18),
+  },
+  inputScaling: {
+    width: '80%',
+    marginBottom: moderateVerticalScale(20),
+  },
+  errorLblScaling: {
+    // ml-10 text-base mb-7
+    marginLeft: moderateScale(40),
+    fontSize: scale(13),
+    marginBottom: moderateVerticalScale(50),
+  },
+  btnScaling: {
+    //mb-10
+    marginBottom: moderateVerticalScale(30),
+    height: verticalScale(40),
+  },
+  alredyHaveAccScaling: {
+    //  text-lg mb-8
+    fontSize: scale(15),
   },
 });
 
