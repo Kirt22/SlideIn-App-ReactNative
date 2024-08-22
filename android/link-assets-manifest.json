@@ -1,0 +1,69 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 1.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 10.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 11.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 12.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 13.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 14.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 2.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 3.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 4.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 5.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 6.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 7.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 8.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BAHNSCHRIFT 9.TTF",
+      "sha1": "1ca49cdabec11a9f7a5d52dfe0f01cc6b471c374"
+    },
+    {
+      "path": "src/presentation/assets/fonts/BS_Static_Bold.ttf",
+      "sha1": "f0c2c9c9181edb76b085396a38224f319f144c99"
+    },
+    {
+      "path": "src/presentation/assets/fonts/Bahnschrift.ttf",
+      "sha1": "3ae36c12074f95001da9cf2397c7128684e780e5"
+    }
+  ]
+}

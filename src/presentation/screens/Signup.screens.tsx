@@ -23,7 +23,7 @@ import {validateCredentialsSignup} from '../utils/ValidateUserInput.utils';
 import {setToken} from '../utils/TokenManager';
 
 // svg image
-import SignupImage from '../assets/images/svj/signup_title.svg';
+import SignupImage from '../assets/images/svj/signup_title_figma.svg';
 
 // strings import
 import {strings} from '../assets/strings/strings';
@@ -93,7 +93,7 @@ const Signup = ({navigation}: any) => {
       <SignupImage
         style={[s`self-center`, styles.signupImgScaling]}
         width={scale(300)}
-        height={verticalScale(100)}
+        height={verticalScale(70)}
       />
 
       <Text style={[s`self-end`, styles.welcomeTextScaling]}>
@@ -171,7 +171,7 @@ const Signup = ({navigation}: any) => {
             styles.elevationBtn,
             styles.btnScaling,
           ]}
-          labelStyle={s`text-base`}
+          labelStyle={[s`text-base`, styles.btnFont]}
           mode="contained"
           onPress={handleSignup}
           buttonColor="black"
@@ -213,14 +213,15 @@ const styles = StyleSheet.create({
   },
   signupImgScaling: {
     //mb-1 mt-9
-    marginTop: moderateVerticalScale(30),
+    marginTop: moderateVerticalScale(60),
   },
   welcomeTextScaling: {
     //text-3xl mr-12 mb-10
     fontSize: scale(22),
     marginRight: moderateScale(35),
     marginBottom: moderateVerticalScale(30),
-    opacity: 0.7,
+    opacity: 0.5,
+    fontFamily: 'bahnschrift Static',
   },
   loaderScaling: {
     //mb-10
@@ -231,6 +232,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateVerticalScale(15),
     marginLeft: moderateScale(40),
     fontSize: scale(18),
+    fontFamily: 'bahnschrift',
   },
   inputScaling: {
     width: '80%',
@@ -250,7 +252,11 @@ const styles = StyleSheet.create({
   alredyHaveAccScaling: {
     //  text-lg mb-8
     fontSize: scale(15),
+    fontFamily: 'bahnschrift',
   },
+  btnFont: {
+    fontFamily: 'bahnschrift Static',
+  }
 });
 
 export default Signup;

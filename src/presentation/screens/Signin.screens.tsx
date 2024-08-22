@@ -22,7 +22,7 @@ import {validateCredentialsSignin} from '../utils/ValidateUserInput.utils';
 import {setToken} from '../utils/TokenManager';
 
 // svg image
-import SigninImage from '../assets/images/svj/signin_title.svg';
+import SigninImage from '../assets/images/svj/signin_title_figma.svg';
 
 // strings import
 import {strings} from '../assets/strings/strings';
@@ -93,7 +93,7 @@ const Signin = ({navigation}: any) => {
       <SigninImage
         style={[s`self-center`, styles.singinInmageScaling]}
         width={scale(300)}
-        height={verticalScale(100)}
+        height={verticalScale(70)}
       />
 
       <Text style={[s`self-end`, styles.welcomeTextScaling]}>
@@ -148,7 +148,7 @@ const Signin = ({navigation}: any) => {
             styles.elevationBtn,
             styles.btnScaling
           ]}
-          labelStyle={s`text-base`}
+          labelStyle={[s`text-base`, styles.btnFont]}
           mode="contained"
           onPress={handleSignin}
           buttonColor="black"
@@ -196,14 +196,15 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   singinInmageScaling: {
-    marginTop: moderateVerticalScale(30),
+    marginTop: moderateVerticalScale(60),
   },
   welcomeTextScaling: {
     //text-3xl mr-12 mb-10
     fontSize: scale(22),
     marginRight: moderateScale(35),
     marginBottom: moderateVerticalScale(30),
-    opacity: 0.7,
+    opacity: 0.5,
+    fontFamily: 'bahnschrift Static',
   },
   loaderScaling: {
     //mb-10
@@ -214,6 +215,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateVerticalScale(15),
     marginLeft: moderateScale(40),
     fontSize: scale(18),
+    fontFamily: 'bahnschrift',
   },
   inputScaling: {
     width: '80%',
@@ -235,9 +237,14 @@ const styles = StyleSheet.create({
     //  text-lg mb-8
     fontSize: scale(15),
     marginBottom: moderateVerticalScale(20),
+    fontFamily: 'bahnschrift',
   },
   forgotPassScaling: {
     fontSize: scale(15),
+    fontFamily: 'bahnschrift',
+  }, 
+  btnFont: {
+    fontFamily: 'bahnschrift Static',
   }
 });
 
