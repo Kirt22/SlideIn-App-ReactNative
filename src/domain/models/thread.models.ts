@@ -4,6 +4,7 @@ export interface thread {
   userId: string;
   createdAt: string;
   updatedAt: string;
+  shortenedInputPrompt: string;
   __v: Int16Array;
 }
 

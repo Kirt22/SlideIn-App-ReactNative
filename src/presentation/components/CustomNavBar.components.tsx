@@ -1,5 +1,3 @@
-// components/CustomBottomNavBar.tsx
-
 import React from 'react';
 import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
 import {scale, verticalScale} from 'react-native-size-matters';
@@ -21,7 +19,7 @@ const CustomBottomNavBar = ({state, descriptors, navigation}: any) => {
 
         let iconName = 'help-outline';
 
-        if (route.name === 'Home') {
+        if (route.name === 'HomeScreen') {
           iconName = isFocused ? 'heart-outline' : 'heart-outline';
         } else if (route.name === 'Settings') {
           iconName = isFocused ? 'settings-sharp' : 'settings-outline';
@@ -47,7 +45,7 @@ const CustomBottomNavBar = ({state, descriptors, navigation}: any) => {
               <Icon
                 name={iconName}
                 size={28}
-                color={isFocused ? 'white' : '#848484'}
+                color={isFocused ? 'white' : 'black'}
               />
             </View>
 
@@ -67,14 +65,20 @@ const CustomBottomNavBar = ({state, descriptors, navigation}: any) => {
 
 const styles = StyleSheet.create({
   container: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#E5E7EB',
+    backgroundColor: '#f3f3f3',
+    borderColor: '#f3f3f3',
+    borderWidth: 15,
+    // borderWidth: 0.2,
     height: Platform.OS === 'android' ? verticalScale(60) : verticalScale(80),
-    borderTopLeftRadius: scale(30),
-    borderTopRightRadius: scale(30),
-    borderTopColor: '#d1d1d1',
+    borderTopRightRadius: scale(24),
+    borderTopLeftRadius: scale(24),
   },
   tab: {
     flex: 1,
@@ -82,19 +86,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    marginTop: 4,
-    fontSize: 12,
+    marginTop: scale(4),
+    fontSize: scale(10),
   },
   focusedLabel: {
-    color: '#1c1b20',
+    color: 'black',
   },
   unfocusedLabel: {
-    color: '#848484',
+    color: 'black',
   },
   focusedIcon: {
-    backgroundColor: '#848484',
-    padding: 8,
-    borderRadius: 20,
+    backgroundColor: 'black',
+    padding: scale(7),
+    borderRadius: scale(20),
     alignItems: 'center',
     width: scale(60),
   },

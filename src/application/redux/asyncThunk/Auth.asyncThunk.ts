@@ -23,7 +23,7 @@ export const signin = createAsyncThunk(
       const response = await signIn(payload);
       return response;
     } catch (error: any) {
-      return rejectWithValue(error.message); // Return error message
+      return rejectWithValue(error.message); 
     }
   },
 );

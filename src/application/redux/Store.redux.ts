@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
 import authReducer from './slice/Auth.slice';
+import threadReducer from './slice/Thread.slice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    thread: threadReducer,
   },
 });
 

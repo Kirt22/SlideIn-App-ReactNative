@@ -8,33 +8,34 @@ import {
   thread,
 } from '../../../domain/models/thread.models';
 
-import {getToken} from '../../../presentation/utils/TokenManager';
+import {getToken} from '../../../presentation/utils/TokenManager.utils';
 
 export const getThreads = async (): Promise<[thread]> => {
+  const token = await getToken();
   try {
     const response = await axios.get(`${Constants.BASE_URL}/thread/get`, {
       headers: {
-        Authorization: `Bearer ${getToken()}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
   } catch (error) {
     console.error('Unknown error', error);
-    throw new Error('Something went wrong!');
+    throw new Error('Token Not Found!');
   }
 };
 
 export const getGeneratedPrompts = async (
   id: String,
 ): Promise<[generatedResponse]> => {
+  const token = await getToken();
   try {
     const response = await axios.get(
-      `${Constants.BASE_URL}/thread/get/responses`,
+      `${Constants.BASE_URL}/thread/get/responses/${id}`,
       {
         headers: {
-          Authorization: `Bearer ${getToken()}`,
+          Authorization: `Bearer ${token}`,
         },
-        data: {id},
       },
     );
     return response.data;
@@ -47,13 +48,14 @@ export const getGeneratedPrompts = async (
 export const generateResponse = async (
   data: generateResponseRequest,
 ): Promise<generatedResponse> => {
+  const token = await getToken();
   try {
     const response = await axios.post<generatedResponse>(
       `${Constants.BASE_URL}/thread/generate`,
       data,
       {
         headers: {
-          Authorization: `Bearer ${getToken()}`,
+          Authorization: `Bearer ${token}`,
         },
       },
     );
@@ -67,14 +69,14 @@ export const generateResponse = async (
 export const deteleThread = async (
   id: string,
 ): Promise<deteleThreadResponse> => {
+  const token = await getToken();
   try {
     const response = await axios.delete<deteleThreadResponse>(
-      `${Constants.BASE_URL}/thread/generate`,
+      `${Constants.BASE_URL}/thread/${id}`,
       {
         headers: {
-          Authorization: `Bearer ${getToken()}`,
+          Authorization: `Bearer ${token}`,
         },
-        data: {id},
       },
     );
     return response.data;
